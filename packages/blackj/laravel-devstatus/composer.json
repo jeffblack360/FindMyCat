@@ -1,0 +1,13 @@
+{
+    "name": "blackj/laravel-devstatus",
+    "description": "dev status package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jeffblack360",
+            "email": "jeffblack360@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

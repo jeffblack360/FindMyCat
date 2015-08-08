@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Response;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -31,6 +33,16 @@ class WelcomeController extends Controller {
 	public function index()
 	{
 		return view('welcome');
+	}
+
+      	/**
+	 * Send json response
+	 *
+	 * @return Response
+	 */
+	public function sendJson()
+	{
+		return Response::json("Hello jeff");
 	}
 
 }

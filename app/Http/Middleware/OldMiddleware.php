@@ -1,6 +1,7 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Log;
 
 class OldMiddleware {
 
@@ -13,11 +14,17 @@ class OldMiddleware {
 	 */
 	public function handle($request, Closure $next)
 	{
-        if ($request->input('age') < 200)
-        {
-            return redirect('cats/?age=300');
+            $response = $next($request);
+            
+            $age = $request->input('age');
+            
+            Log::debug('age -> '. $age);
+            
+            $rjb = $request->header('rjb','bar');
+            
+            $response->headers->set('foo', $rjb);
+            
+            return $response;
         }
-		return $next($request);
-	}
 
 }

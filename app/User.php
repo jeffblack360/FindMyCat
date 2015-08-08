@@ -6,6 +6,8 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+use App\Cat;
+
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -30,5 +32,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
-
+        
+        public function cats() {
+            return $this->hasMany('Cat');
+        }
+        
+        public function owns(Cat $cat) {
+            return $this->id == $cat->owner;
+        }
+        
+        public function canEdit(Cat $cat) {
+            return $this->is_admin or $this->owns($cat);
+        }
 }
