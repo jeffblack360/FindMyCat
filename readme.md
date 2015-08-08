@@ -1,6 +1,6 @@
 ## FindMyCat
 
-FindMyCat is a training application I constructed using the wonderful PHP web application framework Laravel.
+FindMyCat is a training application I constructed using the wonderful PHP web application framework [Laravel](http://laravel.com/).
 
 ### License
 
